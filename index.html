@@ -9,7 +9,9 @@
 <body>
 <p id="winner"></p>
     <script>
-        
+        let player;
+        let computer;
+         playRound();
         function getComputerChoice(){
             let number = Math.floor(Math.random()*3) +1;
             let computerPick = (number == 1) ? 'rock': 
@@ -17,33 +19,64 @@
             'scissors';
              return computerPick;
         }
-        let computerSelection = getComputerChoice();
         
-        let playerSelection = prompt('Rock, paper , scissors? ');
-        playerSelection = playerSelection.toLowerCase();
+        
+        
+        function getPlayerSelection(){
+            let playerSelection = prompt('Rock, paper , scissors? ');
+            playerSelection = playerSelection.toLowerCase();
+            return playerSelection;
+        }
+        
        
         
-        function RockPaperScissors(playerSelection, computerSelection){
-            
-            function validInput(playerSelection){
-               if(playerSelection != 'rock' || playerSelection != 'paper'|| playerSelection != 'scissors'){
+
+        function validInput(playerSelection){
+            if(playerSelection == null || playerSelection == ''){
                     alert('invalid user input');
                }  
-               return;  
+               return; 
+         }
+         
+         function playRound(){
+           player = 0;
+           computer = 0;
+            
+            for(var i = 0; i<5; i++){
+                let playerSelection = getPlayerSelection();
+                let computerSelection = getComputerChoice();
+                validInput(playerSelection);
+                RockPaperScissors(playerSelection, computerSelection);
+                console.log(' player choice = ' + playerSelection + ' & computer choice = ' + computerSelection);
+                
             }
-                let winnerMessage = (playerSelection === computerSelection)? 'tie!':(playerSelection == 'rock' && computerSelection == 'paper') ? 'Paper beats rock! Computer wins!':
-                (playerSelection == 'rock' && computerSelection == 'scissors') ?  'Rock beats scissors! Player wins!':
-                (playerSelection == 'paper' && computerSelection == 'scissors') ?  'Scissors beats paper! Computer wins!': 
-                (playerSelection == 'paper' && computerSelection == 'rock') ? 'Paper beats rock! Player wins!': 
-                (playerSelection == 'scissors' && computerSelection == 'rock') ?  'Rock beats scissors! Computer wins!':
-                (playerSelection == 'scissors' && computerSelection == 'paper') ? 'Scissors beats paper! Player wins!': 'error';
-                console.log(winnerMessage);
-                return winnerMessage;
+            console.log("player points: " + player + " computer points: " + computer);
+            if(computer > player){
+                console.log('Computer wins!');
+            }
+            else if(player > computer){
+                console.log('Player wins!');
+            }
+            else{
+                console.log('No winner!')
+            }
+         }
+        function RockPaperScissors(p, c){
+        if(p == 'rock' && c == 'scissors'|| p == 'paper' && c == 'rock' || p == 'rock' && c == 'scissors'){
+            player = player + 1;
+            console.log('One point to player!');
         }
-        console.log(' player choice = ' + playerSelection + ' & computer choice = ' + computerSelection);
-        let winner = RockPaperScissors(playerSelection, computerSelection);
-        document.getElementById('winner').innerHTML = winner;
         
+        else if ( p == 'rock' && c == 'paper'|| p == 'paper' && c == 'scissors'||p == 'rock' && c == 'paper') {
+            computer = computer + 1;
+            console.log('One point to computer!');
+        }
+        else{ 
+        console.log('tie! no points');
+        }
+        }    
+        
+       
     </script>
     
 </body>
