@@ -7,7 +7,7 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-
+<p id="winner"></p>
     <script>
         
         function getComputerChoice(){
@@ -17,9 +17,35 @@
             'scissors';
              return computerPick;
         }
-        getComputerChoice();
+        let computerSelection = getComputerChoice();
+        
+        let playerSelection = prompt('Rock, paper , scissors? ');
+        playerSelection = playerSelection.toLowerCase();
+       
+        
+        function RockPaperScissors(playerSelection, computerSelection){
+            
+            function validInput(playerSelection){
+               if(playerSelection != 'rock' || playerSelection != 'paper'|| playerSelection != 'scissors'){
+                    alert('invalid user input');
+               }  
+               return;  
+            }
+                let winnerMessage = (playerSelection === computerSelection)? 'tie!':(playerSelection == 'rock' && computerSelection == 'paper') ? 'Paper beats rock! Computer wins!':
+                (playerSelection == 'rock' && computerSelection == 'scissors') ?  'Rock beats scissors! Player wins!':
+                (playerSelection == 'paper' && computerSelection == 'scissors') ?  'Scissors beats paper! Computer wins!': 
+                (playerSelection == 'paper' && computerSelection == 'rock') ? 'Paper beats rock! Player wins!': 
+                (playerSelection == 'scissors' && computerSelection == 'rock') ?  'Rock beats scissors! Computer wins!':
+                (playerSelection == 'scissors' && computerSelection == 'paper') ? 'Scissors beats paper! Player wins!': 'error';
+                console.log(winnerMessage);
+                return winnerMessage;
+        }
+        console.log(' player choice = ' + playerSelection + ' & computer choice = ' + computerSelection);
+        let winner = RockPaperScissors(playerSelection, computerSelection);
+        document.getElementById('winner').innerHTML = winner;
         
     </script>
     
 </body>
 </html>
+
