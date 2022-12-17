@@ -59,17 +59,23 @@ function playRound(){
 
 
 function RockPaperScissors(p, c){
-    if(p == 'rock' && c == 'scissors'|| p == 'paper' && c == 'rock' || p == 'rock' && c == 'scissors'){
+    if(p == 'rock' && c == 'scissors'|| p == 'paper' && c == 'rock' || p == 'scissors' && c == 'paper'){
         player = player + 1;
         console.log('One point to player!');
+        playerScore.textContent = "Player score: " + player;
+        computerScore.textContent = "Computer score: " + computer;
     }
         
-    else if ( p == 'rock' && c == 'paper'|| p == 'paper' && c == 'scissors'||p == 'rock' && c == 'paper') {
+    else if ( p == 'rock' && c == 'paper'|| p == 'paper' && c == 'scissors'||p == 'scissors' && c == 'rock') {
         computer = computer + 1;
         console.log('One point to computer!');
+        playerScore.textContent = "Player score: " + player;
+        computerScore.textContent = "Computer score: " + computer;
     }
     else{ 
-    console.log('tie! no points');
+        console.log('tie! no points');
+        playerScore.textContent = "Player score: " + player;
+        computerScore.textContent = "Computer score: " + computer;
     }
 }    
         
