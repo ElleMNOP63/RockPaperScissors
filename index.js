@@ -25,6 +25,8 @@ reset.addEventListener('click',() => {
     playerScore.textContent = "Player score: " + player;
     computerScore.textContent = "Computer score: " + computer;
     winner.textContent = "Pick your weapon!";
+    playerChoice.textContent = "";
+    computerChoice.textContent = "";
 })
 
 rock.addEventListener('click', () => {
