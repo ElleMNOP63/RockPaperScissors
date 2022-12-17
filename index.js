@@ -1,52 +1,50 @@
 let player;
 let computer;
-playRound();
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+const reset = document.querySelector('#reset');
+let playerSelection;
+
+reset.addEventListener('click',() => {
+    player= 0;
+    computer= 0;
+    playerScore.textContent = "Player score: " + player;
+    computerScore.textContent = "Computer score: " + computer;
+
+})
+
+rock.addEventListener('click', () => {
+    playerSelection = 'rock';
+    console.log("Player: " + playerSelection);
+    playRound();
+})
+paper.addEventListener('click', () => {
+    playerSelection = 'paper';
+    console.log("Player: " + playerSelection);
+    playRound();
+})
+scissors.addEventListener('click', () => {
+    playerSelection = 'scissors';
+    console.log("Player: " + playerSelection);
+    playRound();
+})
 
 function getComputerChoice(){
     let number = Math.floor(Math.random()*3) +1;
     let computerPick = (number == 1) ? 'rock': 
     (number == 2) ? 'paper': 
     'scissors';
+    console.log("Computer: " + computerPick)
     return computerPick;
 }
-        
-        
-        
-/*function getPlayerSelection(){
-    let playerSelection = prompt('Rock, paper , scissors? ');
-    playerSelection = playerSelection.toLowerCase();
-    return playerSelection;
-}
-        
-       
-        
 
-function validInput(playerSelection){
-    if(playerSelection == null || playerSelection == ''){
-            alert('invalid user input');
-    }  
-    return; 
-}*/
-   
 
 function playRound(){
-    player = 0;
-    computer = 0;
     const winner = document.querySelector('#winner');
     const playerScore = document.querySelector('#playerScore');
     const computerScore = document.querySelector('#computerScore');
-            
-    for(var i = 0; i<5; i++){
-        /*let playerSelection = getPlayerSelection();*/
-        let computerSelection = getComputerChoice();
-        /*validInput(playerSelection);*/
-        RockPaperScissors(playerSelection, computerSelection);
-        console.log(' player choice = ' + playerSelection + ' & computer choice = ' + computerSelection);
-                
-}
-playerScore.textContent = "Player score: " + player;
-computerScore.textContent = "Computer score: " + computer;
-
+  RockPaperScissors(playerSelection, getComputerChoice());
     if(computer > player){
         winner.textContent = "Dang! you lost!" ;
         
