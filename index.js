@@ -12,7 +12,7 @@ function getComputerChoice(){
         
         
         
-function getPlayerSelection(){
+/*function getPlayerSelection(){
     let playerSelection = prompt('Rock, paper , scissors? ');
     playerSelection = playerSelection.toLowerCase();
     return playerSelection;
@@ -26,7 +26,7 @@ function validInput(playerSelection){
             alert('invalid user input');
     }  
     return; 
-}
+}*/
    
 
 function playRound(){
@@ -37,9 +37,9 @@ function playRound(){
     const computerScore = document.querySelector('#computerScore');
             
     for(var i = 0; i<5; i++){
-        let playerSelection = getPlayerSelection();
+        /*let playerSelection = getPlayerSelection();*/
         let computerSelection = getComputerChoice();
-        validInput(playerSelection);
+        /*validInput(playerSelection);*/
         RockPaperScissors(playerSelection, computerSelection);
         console.log(' player choice = ' + playerSelection + ' & computer choice = ' + computerSelection);
                 
