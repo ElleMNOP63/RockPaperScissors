@@ -5,7 +5,19 @@ const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 const reset = document.querySelector('#reset');
 let playerSelection;
+const winner = document.querySelector('#winner');
+const playerScore = document.querySelector('#playerScore');
+const computerScore = document.querySelector('#computerScore');
 
+
+
+window.onload = ()=> {
+    player = 0;
+    computer = 0;
+    playerScore.textContent = "Player score: " + player;
+    computerScore.textContent = "Computer score: " + computer;
+
+}
 reset.addEventListener('click',() => {
     player= 0;
     computer= 0;
@@ -41,39 +53,28 @@ function getComputerChoice(){
 
 
 function playRound(){
-    const winner = document.querySelector('#winner');
-    const playerScore = document.querySelector('#playerScore');
-    const computerScore = document.querySelector('#computerScore');
+    
   RockPaperScissors(playerSelection, getComputerChoice());
-    if(computer > player){
-        winner.textContent = "Dang! you lost!" ;
-        
-    }
-    else if(player > computer){
-        winner.textContent = "Nice job! You win!"  ;
-    }
-    else{
-        winner.textContent = "Oof! That's a tie! Better luck next time!" ;
-    }
+  
 }
 
 
 function RockPaperScissors(p, c){
     if(p == 'rock' && c == 'scissors'|| p == 'paper' && c == 'rock' || p == 'scissors' && c == 'paper'){
         player = player + 1;
-        console.log('One point to player!');
+        winner.textContent = "One point to player!";
         playerScore.textContent = "Player score: " + player;
         computerScore.textContent = "Computer score: " + computer;
     }
         
     else if ( p == 'rock' && c == 'paper'|| p == 'paper' && c == 'scissors'||p == 'scissors' && c == 'rock') {
         computer = computer + 1;
-        console.log('One point to computer!');
+        winner.textContent = "One point to computer!";
         playerScore.textContent = "Player score: " + player;
         computerScore.textContent = "Computer score: " + computer;
     }
     else{ 
-        console.log('tie! no points');
+        winner.textContent = "tie! no points";
         playerScore.textContent = "Player score: " + player;
         computerScore.textContent = "Computer score: " + computer;
     }
