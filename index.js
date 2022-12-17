@@ -16,14 +16,14 @@ window.onload = ()=> {
     computer = 0;
     playerScore.textContent = "Player score: " + player;
     computerScore.textContent = "Computer score: " + computer;
-
+    winner.textContent = "Pick your weapon!";
 }
 reset.addEventListener('click',() => {
     player= 0;
     computer= 0;
     playerScore.textContent = "Player score: " + player;
     computerScore.textContent = "Computer score: " + computer;
-
+    winner.textContent = "Pick your weapon!";
 })
 
 rock.addEventListener('click', () => {
