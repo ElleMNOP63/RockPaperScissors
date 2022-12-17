@@ -8,7 +8,8 @@ let playerSelection;
 const winner = document.querySelector('#winner');
 const playerScore = document.querySelector('#playerScore');
 const computerScore = document.querySelector('#computerScore');
-
+const playerChoice = document.querySelector('#playerChoice');
+const computerChoice = document.querySelector('#computerChoice');
 
 
 window.onload = ()=> {
@@ -28,17 +29,17 @@ reset.addEventListener('click',() => {
 
 rock.addEventListener('click', () => {
     playerSelection = 'rock';
-    console.log("Player: " + playerSelection);
+    playerChoice.textContent = "Player: " + playerSelection;
     playRound();
 })
 paper.addEventListener('click', () => {
     playerSelection = 'paper';
-    console.log("Player: " + playerSelection);
+    playerChoice.textContent = "Player: " + playerSelection;
     playRound();
 })
 scissors.addEventListener('click', () => {
     playerSelection = 'scissors';
-    console.log("Player: " + playerSelection);
+    playerChoice.textContent = "Player: " + playerSelection;
     playRound();
 })
 
@@ -47,15 +48,15 @@ function getComputerChoice(){
     let computerPick = (number == 1) ? 'rock': 
     (number == 2) ? 'paper': 
     'scissors';
-    console.log("Computer: " + computerPick)
+    computerChoice.textContent = "Computer: " + computerPick;
     return computerPick;
 }
 
 
 function playRound(){
     
-  RockPaperScissors(playerSelection, getComputerChoice());
-  
+    RockPaperScissors(playerSelection, getComputerChoice());
+    
 }
 
 
